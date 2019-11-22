@@ -4,32 +4,8 @@
 # Do not make changes to this file unless you know what you are doing--modify
 # the SWIG interface file instead.
 
+import _cvxcore
 
-
-
-
-from sys import version_info
-if version_info >= (2, 6, 0):
-    def swig_import_helper():
-        from os.path import dirname
-        import imp
-        fp = None
-        try:
-            fp, pathname, description = imp.find_module('_cvxcore', [dirname(__file__)])
-        except ImportError:
-            import _cvxcore
-            return _cvxcore
-        if fp is not None:
-            try:
-                _mod = imp.load_module('_cvxcore', fp, pathname, description)
-            finally:
-                fp.close()
-            return _mod
-    _cvxcore = swig_import_helper()
-    del swig_import_helper
-else:
-    import _cvxcore
-del version_info
 try:
     _swig_property = property
 except NameError:
